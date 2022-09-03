@@ -10,10 +10,13 @@ function App() {
     <div className='main-layout'>
       <DragDropContext onDragEnd={() => { }}>
         <div className='container'>
+
           <Droppable droppableId='todos'>
+
             {(provided) => (
               <div className='todo-list' ref={provided.innerRef} {...provided.droppableProps}>
                 {todoList.map((item, index) => (
+
                   <Draggable draggableId={`todo-task-${item.id}`} index={index}>
                     {(provided) => (
                       <div
@@ -28,12 +31,10 @@ function App() {
                         {item.content}
                       </div>
                     )}
-
                   </Draggable>
                 ))}
               </div>
             )}
-
           </Droppable>
         </div>
       </DragDropContext>
