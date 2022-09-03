@@ -15,10 +15,20 @@ function App() {
               <div className='todo-list' ref={provided.innerRef} {...provided.droppableProps}>
                 {todoList.map((item, index) => (
                   <Draggable draggableId={`todo-task-${item.id}`} index={index}>
-                    {(provided)=> (
-                      <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} className="todo-task" index={index} key={index} id={`task-${item.id}`}>{item.content}</div>
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        className="todo-task"
+                        index={index}
+                        key={index}
+                        id={`task-${item.id}`}
+                      >
+                        {item.content}
+                      </div>
                     )}
-                    
+
                   </Draggable>
                 ))}
               </div>
